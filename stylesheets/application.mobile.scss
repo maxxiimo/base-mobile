@@ -11,9 +11,9 @@
 
 /* RESETS
   ============================================================================ */
-@import "resets/normalize_h5bp_v201";
+@import "boilerplate/mobile_normalize_v201";
 
-// to counter normalize indentation of lists, prefer not to
+// To counter normalize indentation of lists.
 ol, ul {
   padding-left: 0;
 }
@@ -59,4 +59,4 @@ ol, ul {
 
 /* LAST
   ============================================================================ */
-@import "mobile/h5bp_helpers";
+@import "boilerplate/mobile_helpers";
