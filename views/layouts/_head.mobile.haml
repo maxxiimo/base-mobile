@@ -1,0 +1,43 @@
+%head
+  %meta{:charset => "utf-8"}
+  %title= content_for?(:title) ? yield(:title) : "XXX"
+  %meta{:name => "description", :content => "XXX"}
+  %meta{:name => "HandheldFriendly", :content => "True"}
+  %meta{:name => "MobileOptimized", :content => "320"}
+  %meta{:name => "viewport", :content => "width=device-width"}
+  %meta{"http-equiv" => "cleartype", :content => "on"}
+
+  %link{:rel => "apple-touch-icon-precomposed", :sizes => "144x144", :href => "/apple-touch-icon-144x144-precomposed.png"}
+  %link{:rel => "apple-touch-icon-precomposed", :sizes => "114x114", :href => "/apple-touch-icon-114x114-precomposed.png"}
+  %link{:rel => "apple-touch-icon-precomposed", :sizes => "72x72":href => "/apple-touch-icon-72x72-precomposed.png"}
+  %link{:rel => "apple-touch-icon-precomposed":href => "/apple-touch-icon-57x57-precomposed.png"}
+  %link{:rel => "shortcut icon", :href => "/apple-touch-icon.png"}
+
+  -# Tile icon for Win8 (144x144 + tile color)
+  %meta{:name => "msapplication-TileImage", :content => "/apple-touch-icon-144x144-precomposed.png"}
+  %meta{:name => "msapplication-TileColor", :content => "#222222"}
+
+  -# For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94
+  -# %meta{:name => "apple-mobile-web-app-capable", :content => "yes"}//
+  -# %meta{:name => "apple-mobile-web-app-status-bar-style", :content => "black"}
+  -# %meta{:name => "apple-mobile-web-app-title", :content => ""}
+
+  -# This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026
+  -# :javascript
+  -#   (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
+
+  = stylesheet_link_tag "mobile"
+
+  -# For production customize at: http://www.modernizr.com/download/
+  = javascript_include_tag "modernizr-2.6.2.min"
+  = csrf_meta_tag
+
+  -# *******************************************************************************************
+  -# MORE OPTIONS: (https://gist.github.com/849231)
+
+  -# consider using below meta tags if you want to disable format detection by default
+  -# %meta{:name => "format-detection", :content => "telephone=no"}
+  -# %meta{:name => "format-detection", :content => "address=no"}
+
+  -# consider using below link tag if the page is duplicate content of a desktop version
+  -# %link{:rel => "canonical"}
