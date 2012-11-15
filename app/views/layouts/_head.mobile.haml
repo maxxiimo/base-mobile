@@ -2,7 +2,9 @@
   %meta{:charset => "utf-8"}
   %link{:rel => "dns-prefetch", :href => "//ajax.googleapis.com"}
   %link{:rel => "dns-prefetch", :href => "//code.jquery.com"}
+
   %title= content_for?(:title) ? yield(:title) : "XXX"
+
   %meta{:name => "description", :content => "XXX"}
   %meta{:name => "HandheldFriendly", :content => "True"}
   %meta{:name => "MobileOptimized", :content => "320"}
@@ -28,7 +30,7 @@
   -# :javascript
   -#   (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
 
-  = stylesheet_link_tag "application.mobile"
+  = stylesheet_link_tag "application.mobile", "jquery.mobile-1.2.0"
 
   -# For production customize at: http://www.modernizr.com/download/
   = javascript_include_tag "modernizr-2.6.2.min"
