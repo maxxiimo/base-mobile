@@ -30,7 +30,7 @@
   -# :javascript
   -#   (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
 
-  = stylesheet_link_tag "application.mobile", "jquery.mobile-1.2.0"
+  = stylesheet_link_tag "jquery.mobile-1.2.0", "application.mobile"
 
   -# For production customize at: http://www.modernizr.com/download/
   = javascript_include_tag "modernizr-2.6.2.min"

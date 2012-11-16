@@ -7,10 +7,10 @@
   = head
   %body
     %div{"data-role" => "page"}
-      %header{:id => 'hd', :role => "banner", "data-role" => "header"}
+      %div{"data-role" => "header"}
         = render :partial => 'shared/logo'
         = render :partial => 'shared/navigation'
-      #main{:role => "main", "data-role" => "content"}
+      %div{"data-role" => "content"}
         = yield
       = render :partial => 'shared/footer'
     = scripts
