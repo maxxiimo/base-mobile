@@ -12,9 +12,10 @@
   ============================================================================ */
 @import "boilerplate/mobile_normalize_v201";
 
-// To counter normalize indentation of lists.
+// To counter normalize indentation of lists, and reposition bullets.
 ol, ul {
   padding-left: 0;
+  list-style-position: inside;
 }
 
 
