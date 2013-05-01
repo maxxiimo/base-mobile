@@ -3,6 +3,8 @@
   %link{:rel => "dns-prefetch", :href => "//ajax.googleapis.com"}
 
   %title= content_for?(:title) ? yield(:title) : "XXX"
+  -# alternative title format.
+  -# %title= content_for?(:title) ? ("XXX - " + yield(:title)) : "XXX"
 
   %meta{:name => "description", :content => "XXX"}
   %meta{:name => "HandheldFriendly", :content => "True"}
@@ -29,12 +31,13 @@
   -# :javascript
   -#   (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
 
-  = stylesheet_link_tag "application.mobile"
+  = stylesheet_link_tag "mobile"
+  -# For production customize at: http://www.modernizr.com/download/
+  = javascript_include_tag "application"
 
-  -# Google Web Fonts combination ideas, if you decide to use, uncomment combination and delete the rest.
-
-  -# %link{:href => "http://fonts.googleapis.com/css?family=Cantata+One", :rel => "stylesheet", :type => "text/css"}
-  -# %link{:href => "http://fonts.googleapis.com/css?family=Imprima", :rel => "stylesheet", :type => "text/css"}
+  -# Google Web Fonts combination ideas, if you decide to use any others, uncomment combination and delete the rest.
+  %link{:href => "http://fonts.googleapis.com/css?family=Cantata+One", :rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Imprima", :rel => "stylesheet", :type => "text/css"}
 
   -# %link{:href => "http://fonts.googleapis.com/css?family=Crimson+Text", :rel => "stylesheet", :type => "text/css"}
   -# %link{:href => "http://fonts.googleapis.com/css?family=Allerta", :rel => "stylesheet", :type => "text/css"}
@@ -45,8 +48,6 @@
   -# %link{:href => "http://fonts.googleapis.com/css?family=Droid+Serif", :rel => "stylesheet", :type => "text/css"}
   -# %link{:href => "http://fonts.googleapis.com/css?family=Droid+Sans", :rel => "stylesheet", :type => "text/css"}
 
-  -# For production customize at: http://www.modernizr.com/download/
-  = javascript_include_tag "modernizr-2.6.2.min"
   = csrf_meta_tag
 
   -# *******************************************************************************************
