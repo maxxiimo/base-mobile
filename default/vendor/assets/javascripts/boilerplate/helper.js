@@ -100,6 +100,8 @@
         // styling of .pressed is defined in the project's CSS files
         this.pressedClass = typeof pressedClass === 'undefined' ? 'pressed' : pressedClass;
 
+        MBP.listenForGhostClicks();
+
         if (element.length && element.length > 1) {
             for (var singleElIdx in element) {
                 this.addClickEvent(element[singleElIdx]);
@@ -201,13 +203,24 @@
     // The browser sniffing is to avoid the Blackberry case. Bah
     MBP.dodgyAndroid = ('ontouchstart' in window) && (navigator.userAgent.indexOf('Android 2.3') != -1);
 
-    if (document.addEventListener) {
-        document.addEventListener('click', MBP.ghostClickHandler, true);
-    }
+    MBP.listenForGhostClicks = (function() {
+        var alreadyRan = false;
 
-    addEvt(document.documentElement, 'touchstart', function() {
-        MBP.hadTouchEvent = true;
-    }, false);
+        return function() {
+            if(alreadyRan) {
+                return;
+            }
+
+            if (document.addEventListener) {
+                document.addEventListener('click', MBP.ghostClickHandler, true);
+            }
+            addEvt(document.documentElement, 'touchstart', function() {
+                MBP.hadTouchEvent = true;
+            }, false);
+
+            alreadyRan = true;
+        };
+    })();
 
     MBP.coords = [];
 
@@ -307,6 +320,7 @@
 
     MBP.preventScrolling = function() {
         document.addEventListener('touchmove', function(e) {
+            if (e.target.type === 'range') { return; }
             e.preventDefault();
         }, false);
     };
@@ -321,14 +335,19 @@
         var formFields = document.querySelectorAll('input, select, textarea');
         var contentString = 'width=device-width,initial-scale=1,maximum-scale=';
         var i = 0;
+        var fieldLength = formFields.length;
 
-        for (i = 0; i < formFields.length; i++) {
-            formFields[i].onfocus = function() {
-                MBP.viewportmeta.content = contentString + '1';
-            };
-            formFields[i].onblur = function() {
-                MBP.viewportmeta.content = contentString + '10';
-            };
+        var setViewportOnFocus = function() {
+            MBP.viewportmeta.content = contentString + '1';
+        };
+
+        var setViewportOnBlur = function() {
+            MBP.viewportmeta.content = contentString + '10';
+        };
+
+        for (; i < fieldLength; i++) {
+            formFields[i].onfocus = setViewportOnFocus;
+            formFields[i].onblur = setViewportOnBlur;
         }
     };
 
@@ -364,11 +383,20 @@
             head.appendChild(link2);
         } else {
             portrait = pixelRatio === 2 ? "img/startup/startup-retina.png" : "img/startup/startup.png";
-
+            portrait = screen.height === 568 ? "img/startup/startup-retina-4in.png" : portrait;
             link1 = document.createElement('link');
             link1.setAttribute('rel', 'apple-touch-startup-image');
             link1.setAttribute('href', portrait);
             head.appendChild(link1);
+        }
+
+        //hack to fix letterboxed full screen web apps on 4" iPhone / iPod
+        if (navigator.platform.match(/iPhone|iPod/i) && (screen.height === 568)) {
+            if (MBP.viewportmeta) {
+                MBP.viewportmeta.content = MBP.viewportmeta.content
+                    .replace(/\bwidth\s*=\s*320\b/, 'width=320.1')
+                    .replace(/\bwidth\s*=\s*device-width\b/, '');
+            }
         }
     };
 
