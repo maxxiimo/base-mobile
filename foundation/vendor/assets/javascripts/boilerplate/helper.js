@@ -63,7 +63,7 @@
         var bodycheck;
 
         // If there's a hash, or addEventListener is undefined, stop here
-        if ( !location.hash && win.addEventListener ) {
+        if ( !win.navigator.standalone && !location.hash && win.addEventListener ) {
 
             // scroll to 1
             window.scrollTo( 0, 1 );
@@ -390,8 +390,8 @@
             head.appendChild(link1);
         }
 
-        //hack to fix letterboxed full screen web apps on 4" iPhone / iPod
-        if (navigator.platform.match(/iPhone|iPod/i) && (screen.height === 568)) {
+        //hack to fix letterboxed full screen web apps on 4" iPhone / iPod with iOS 6
+        if (navigator.platform.match(/iPhone|iPod/i) && (screen.height === 568) && navigator.userAgent.match(/\bOS 6_/)) {
             if (MBP.viewportmeta) {
                 MBP.viewportmeta.content = MBP.viewportmeta.content
                     .replace(/\bwidth\s*=\s*320\b/, 'width=320.1')
