@@ -12,4 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require site_mobile
+//= require custom_mobile
