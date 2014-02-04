@@ -19,8 +19,15 @@ body
   line-height: $base-line-height
   background-color: $bg-body
 
-img
+audio,
+canvas,
+img,
+svg,
+video
   vertical-align: middle
+
+*, *:before, *:after
+  +box-sizing(border-box)
 
 
 /* Header
