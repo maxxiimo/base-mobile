@@ -40,8 +40,6 @@
   -#   (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
 
   = stylesheet_link_tag "mobile"
-  -# for production customize modernizr at: http://www.modernizr.com/download/
-  = javascript_include_tag 'modernizr-2.7.1.min'
 
   -# Google Web Fonts combination ideas. Delete what you do not use.
   %link{:href => "http://fonts.googleapis.com/css?family=Droid+Serif", :rel => "stylesheet", :type => "text/css"}
@@ -57,6 +55,9 @@
   -# %link{:href => "http://fonts.googleapis.com/css?family=PT+Sans", :rel => "stylesheet", :type => "text/css"}
 
   -# %link{:href => "http://fonts.googleapis.com/css?family=PT+Serif:400,700", :rel => "stylesheet", :type => "text/css"}
+
+  -# for production customize modernizr at: http://www.modernizr.com/download/
+  = javascript_include_tag 'modernizr-2.7.1.min'
 
   = csrf_meta_tag
 
