@@ -19,11 +19,13 @@ html, button, input, select, textarea
 body
   background-color: $bg-body
 
+.container
+  +container()
+  padding-left: 10px
+  padding-right: 10px
+
 img
   vertical-align: middle
-
-*, *:before, *:after
-  +box-sizing(border-box)
 
 
 /* Header

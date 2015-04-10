@@ -1,0 +1,14 @@
+!!!
+%html.no-js{lang: 'en'}
+  = render 'layouts/phone/head'
+  %body
+    #wrapper
+      %header{role: 'banner'}
+        .container
+          = render 'layouts/phone/logo'
+          = render 'layouts/phone/navigation'
+      #main{role: 'main'}
+        .container
+          = yield
+      = render 'layouts/phone/footer'
+    = render 'layouts/phone/scripts'
