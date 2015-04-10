@@ -6,7 +6,6 @@
 /* MIXINS
   ============================================================================ */
 @import "compass";
-// @import "media_queries";
 @import "mixins";
 
 
@@ -14,10 +13,10 @@
   ============================================================================ */
 @import "boilerplate/mobile_normalize_v301";
 
-// To counter normalize indentation of lists, and reposition bullets.
+// To counter normalize indentation of lists, and reposition bullets and numbers.
 ol, ul {
   padding-left: 0;
-  list-style-position: inside;
+  list-style-position: inside
 }
 
 

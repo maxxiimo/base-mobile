@@ -1,16 +1,14 @@
 %head
   %meta{charset: "utf-8"}
-  -# %link{rel: "dns-prefetch", href: "//ajax.googleapis.com"}
-
+  -# %link{rel: "dns-prefetch", href: "//fonts.googleapis.com"}
+  -# %link{rel: "dns-prefetch", href: "//use.typekit.com"}
   %title= content_for?(:title) ? yield(:title) : "XXX"
   -# alternative title format.
   -# %title= content_for?(:title) ? ("XXX - " + yield(:title)) : "XXX"
-
   %meta{name: "description", content: "XXX"}
   %meta{name: "HandheldFriendly", content: "True"}
   %meta{name: "MobileOptimized", content: "320"}
   %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
-  -# %meta{name: "apple-mobile-web-app-capable", content: "yes"}
   %meta{"http-equiv" => "cleartype", content: "on"}
 
   %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/touch/apple-touch-icon-144x144-precomposed.png"}
@@ -21,7 +19,7 @@
   %link{rel: "shortcut icon",                                  href: "/touch/apple-touch-icon.png"}
 
   -# Tile icon for Win8 (144x144 + tile color)
-  %meta{name: "msapplication-TileImage", content: "/apple-touch-icon-144x144-precomposed.png"}
+  %meta{name: "msapplication-TileImage", content: "/touch/apple-touch-icon-144x144-precomposed.png"}
   %meta{name: "msapplication-TileColor", content: "#222222"}
 
   -# SEO: If mobile URL is different from desktop URL, add a canonical link to the desktop page
@@ -41,20 +39,14 @@
 
   = stylesheet_link_tag "mobile"
 
-  -# Google Web Fonts combination ideas. Delete what you do not use.
-  %link{href: "http://fonts.googleapis.com/css?family=Droid+Serif", rel: "stylesheet", :type => "text/css"}
-  %link{href: "http://fonts.googleapis.com/css?family=Droid+Sans", rel: "stylesheet", :type => "text/css"}
+  -# Google Web Fonts combination idea. Delete if you do not use.
+  %link{href: "http://fonts.googleapis.com/css?family=Droid+Serif", rel: "stylesheet", type: "text/css"}
+  %link{href: "http://fonts.googleapis.com/css?family=Droid+Sans", rel: "stylesheet", type: "text/css"}
 
-  -# %link{href: "http://fonts.googleapis.com/css?family=Cantata+One", rel: "stylesheet", :type => "text/css"}
-  -# %link{href: "http://fonts.googleapis.com/css?family=Imprima", rel: "stylesheet", :type => "text/css"}
-
-  -# %link{href: "http://fonts.googleapis.com/css?family=Crimson+Text", rel: "stylesheet", :type => "text/css"}
-  -# %link{href: "http://fonts.googleapis.com/css?family=Allerta", rel: "stylesheet", :type => "text/css"}
-
-  -# %link{href: "http://fonts.googleapis.com/css?family=Arvo", rel: "stylesheet", :type => "text/css"}
-  -# %link{href: "http://fonts.googleapis.com/css?family=PT+Sans", rel: "stylesheet", :type => "text/css"}
-
-  -# %link{href: "http://fonts.googleapis.com/css?family=PT+Serif:400,700", rel: "stylesheet", :type => "text/css"}
+  -# Typekit script. Delete if you do not use.
+  -# %script{src: '//use.typekit.net/XXX.js', type: 'text/javascript'}
+  -# :javascript
+  -#   try{Typekit.load();}catch(e){}
 
   -# for production customize modernizr at: http://www.modernizr.com/download/
   = javascript_include_tag 'modernizr-2.8.3.min'
@@ -62,7 +54,8 @@
   = csrf_meta_tag
 
   -# *******************************************************************************************
-  -# MORE OPTIONS: (https://gist.github.com/849231)
+  -# MORE OPTIONS: https://gist.github.com/849231
+  -#               https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
 
   -# consider using below meta tags if you want to disable format detection by default
   -# %meta{name: "format-detection", content: "telephone=no"}
