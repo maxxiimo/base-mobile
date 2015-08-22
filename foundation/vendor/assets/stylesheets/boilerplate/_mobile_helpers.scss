@@ -46,7 +46,8 @@ textarea[contenteditable] {
 }
 
 /*
- * Hide from both screenreaders and browsers: h5bp.com/u
+ * Hide from both screenreaders and browsers
+ * http://juicystudio.com/article/screen-readers-display-none.php
  */
 
 .hidden {
@@ -55,7 +56,8 @@ textarea[contenteditable] {
 }
 
 /*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ * Hide only visually, but have it available for screenreaders
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 
 .visuallyhidden {
@@ -71,7 +73,7 @@ textarea[contenteditable] {
 
 /*
  * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
+ * when navigated to via the keyboard: https://www.drupal.org/node/897638
  */
 
 .visuallyhidden.focusable:active,
@@ -94,7 +96,7 @@ textarea[contenteditable] {
 
 /**
  * Clearfix helper
- * Used to contain floats: h5bp.com/q
+ * Used to contain floats: http://nicolasgallagher.com/micro-clearfix-hack/
  */
 
 .clearfix:before,
@@ -105,4 +107,19 @@ textarea[contenteditable] {
 
 .clearfix:after {
     clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 144dpi) {
+    /* Style adjustments for viewports that meet the condition */
 }

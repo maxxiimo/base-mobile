@@ -11,12 +11,19 @@
   %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
   %meta{"http-equiv" => "cleartype", content: "on"}
 
+  %link{rel: "apple-touch-icon-precomposed", sizes: "180x180", href: "/touch/apple-touch-icon-180x180-precomposed.png"}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "/touch/apple-touch-icon-152x152-precomposed.png"}
   %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/touch/apple-touch-icon-144x144-precomposed.png"}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "/touch/apple-touch-icon-120x120-precomposed.png"}
   %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/touch/apple-touch-icon-114x114-precomposed.png"}
+  %link{rel: "apple-touch-icon-precomposed", sizes: "76x76",   href: "/touch/apple-touch-icon-76x76-precomposed.png"}
   %link{rel: "apple-touch-icon-precomposed", sizes: "72x72",   href: "/touch/apple-touch-icon-72x72-precomposed.png"}
   %link{rel: "apple-touch-icon-precomposed",                   href: "/touch/apple-touch-icon-57x57-precomposed.png"}
-  %link{rel: "shortcut icon",                sizes: "196x196", href: "/touch/touch-icon-196x196.png"}
   %link{rel: "shortcut icon",                                  href: "/touch/apple-touch-icon.png"}
+
+  -# Chrome 31+ home screen icon
+  %link{rel: "icon", sizes: "192x192", href: "/touch/touch-icon-192x192.png"}
+  %link{rel: "icon", sizes: "128x128", href: "/touch/touch-icon-128x128.png"}
 
   -# Tile icon for Win8 (144x144 + tile color)
   %meta{name: "msapplication-TileImage", content: "/touch/apple-touch-icon-144x144-precomposed.png"}
@@ -37,7 +44,7 @@
   -# :javascript
   -#   (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
 
-  = stylesheet_link_tag "mobile"
+  = stylesheet_link_tag "phone"
 
   -# Google Web Fonts combination idea. Delete if you do not use.
   %link{href: "http://fonts.googleapis.com/css?family=Droid+Serif", rel: "stylesheet", type: "text/css"}
