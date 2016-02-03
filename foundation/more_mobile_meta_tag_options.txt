@@ -1,0 +1,10 @@
+*******************************************************************************************
+MORE OPTIONS: https://gist.github.com/849231
+              https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+
+consider using these meta tags if you want to disable format detection by default
+%meta{name: "format-detection", content: "telephone=no"}
+%meta{name: "format-detection", content: "address=no"}
+
+consider using below link tag if the page is duplicate content of a desktop version
+%link{rel: "canonical"}
